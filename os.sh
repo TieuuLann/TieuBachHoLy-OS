@@ -41,6 +41,11 @@ echo "alias updatepkg='pkg update && pkg upgrade -y'" >> ~/.zshrc
 # Set up an alias for clearing the screen
 echo "alias cls='clear'" >> ~/.zshrc
 
+# Download and apply Termux-os specific configuration files
+echo "[+] Downloading Termux-os specific configuration files..."
+git clone https://github.com/h4ck3r0/Termux-os.git $HOME/.termux-os
+cp $HOME/.termux-os/.zshrc-termux-os $HOME/.zshrc
+
 # Source the updated configuration
 source ~/.zshrc
 
