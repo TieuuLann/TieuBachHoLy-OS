@@ -44,7 +44,14 @@ echo "alias cls='clear'" >> ~/.zshrc
 # Download and apply Termux-os specific configuration files
 echo "[+] Downloading Termux-os specific configuration files..."
 git clone https://github.com/h4ck3r0/Termux-os.git $HOME/.termux-os
-cp $HOME/.termux-os/.zshrc-termux-os $HOME/.zshrc
+
+# Check if .zshrc-termux-os exists before copying
+if [ -f $HOME/.termux-os/.zshrc-termux-os ]; then
+    cp $HOME/.termux-os/.zshrc-termux-os $HOME/.zshrc
+    echo "[+] Termux-os configuration applied!"
+else
+    echo "[!] Termux-os configuration file not found."
+fi
 
 # Source the updated configuration
 source ~/.zshrc
